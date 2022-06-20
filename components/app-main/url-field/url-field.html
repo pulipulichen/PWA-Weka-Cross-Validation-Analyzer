@@ -1,0 +1,22 @@
+<div class="field">
+  <label>
+    {{ label }}
+  </label>
+  <div class="ui action input">
+    <input type="text" v-bind:value="url">
+    <a class="ui icon button"
+       v-bind:href="url"
+       target="test">
+      <i class="question circle icon"></i>
+    </a>
+    <a class="ui icon button"
+       v-bind:href="url"
+       v-bind:target="url">
+      <i class="open external icon"></i>
+    </a>
+    <a class="ui icon button"
+       v-on:click="copyURL(url)">
+      <i class="copy icon"></i>
+    </a>
+  </div>
+</div>

@@ -1,0 +1,1211 @@
+ 
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.J48 -C 0.25 -M 2
+Relation:     german_credit
+Instances:    1000
+Attributes:   21
+              checking_status
+              duration
+              credit_history
+              purpose
+              credit_amount
+              savings_status
+              employment
+              installment_commitment
+              personal_status
+              other_parties
+              residence_since
+              property_magnitude
+              age
+              other_payment_plans
+              housing
+              existing_credits
+              job
+              num_dependents
+              own_telephone
+              foreign_worker
+              class
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+J48 pruned tree
+------------------
+
+checking_status = <0
+|   foreign_worker = yes
+|   |   duration <= 11
+|   |   |   existing_credits <= 1
+|   |   |   |   property_magnitude = real estate: good (8.0/1.0)
+|   |   |   |   property_magnitude = life insurance
+|   |   |   |   |   own_telephone = none: bad (2.0)
+|   |   |   |   |   own_telephone = yes: good (4.0)
+|   |   |   |   property_magnitude = car: good (2.0/1.0)
+|   |   |   |   property_magnitude = no known property: bad (3.0)
+|   |   |   existing_credits > 1: good (14.0)
+|   |   duration > 11
+|   |   |   job = unemp/unskilled non res: bad (5.0/1.0)
+|   |   |   job = unskilled resident
+|   |   |   |   purpose = new car
+|   |   |   |   |   own_telephone = none: bad (10.0/2.0)
+|   |   |   |   |   own_telephone = yes: good (2.0)
+|   |   |   |   purpose = used car: bad (1.0)
+|   |   |   |   purpose = furniture/equipment
+|   |   |   |   |   employment = unemployed: good (0.0)
+|   |   |   |   |   employment = <1: bad (3.0)
+|   |   |   |   |   employment = 1<=X<4: good (4.0)
+|   |   |   |   |   employment = 4<=X<7: good (1.0)
+|   |   |   |   |   employment = >=7: good (2.0)
+|   |   |   |   purpose = radio/tv
+|   |   |   |   |   existing_credits <= 1: bad (10.0/3.0)
+|   |   |   |   |   existing_credits > 1: good (2.0)
+|   |   |   |   purpose = domestic appliance: bad (1.0)
+|   |   |   |   purpose = repairs: bad (1.0)
+|   |   |   |   purpose = education: bad (1.0)
+|   |   |   |   purpose = vacation: bad (0.0)
+|   |   |   |   purpose = retraining: good (1.0)
+|   |   |   |   purpose = business: good (3.0)
+|   |   |   |   purpose = other: good (1.0)
+|   |   |   job = skilled
+|   |   |   |   other_parties = none
+|   |   |   |   |   duration <= 30
+|   |   |   |   |   |   savings_status = <100
+|   |   |   |   |   |   |   credit_history = no credits/all paid: bad (8.0/1.0)
+|   |   |   |   |   |   |   credit_history = all paid: bad (6.0)
+|   |   |   |   |   |   |   credit_history = existing paid
+|   |   |   |   |   |   |   |   own_telephone = none
+|   |   |   |   |   |   |   |   |   existing_credits <= 1
+|   |   |   |   |   |   |   |   |   |   property_magnitude = real estate
+|   |   |   |   |   |   |   |   |   |   |   age <= 26: bad (5.0)
+|   |   |   |   |   |   |   |   |   |   |   age > 26: good (2.0)
+|   |   |   |   |   |   |   |   |   |   property_magnitude = life insurance: bad (7.0/2.0)
+|   |   |   |   |   |   |   |   |   |   property_magnitude = car
+|   |   |   |   |   |   |   |   |   |   |   credit_amount <= 1386: bad (3.0)
+|   |   |   |   |   |   |   |   |   |   |   credit_amount > 1386: good (11.0/1.0)
+|   |   |   |   |   |   |   |   |   |   property_magnitude = no known property: good (2.0)
+|   |   |   |   |   |   |   |   |   existing_credits > 1: bad (3.0)
+|   |   |   |   |   |   |   |   own_telephone = yes: bad (5.0)
+|   |   |   |   |   |   |   credit_history = delayed previously: bad (4.0)
+|   |   |   |   |   |   |   credit_history = critical/other existing credit: good (14.0/4.0)
+|   |   |   |   |   |   savings_status = 100<=X<500
+|   |   |   |   |   |   |   credit_history = no credits/all paid: good (0.0)
+|   |   |   |   |   |   |   credit_history = all paid: good (1.0)
+|   |   |   |   |   |   |   credit_history = existing paid: bad (3.0)
+|   |   |   |   |   |   |   credit_history = delayed previously: good (0.0)
+|   |   |   |   |   |   |   credit_history = critical/other existing credit: good (2.0)
+|   |   |   |   |   |   savings_status = 500<=X<1000: good (4.0/1.0)
+|   |   |   |   |   |   savings_status = >=1000: good (4.0)
+|   |   |   |   |   |   savings_status = no known savings
+|   |   |   |   |   |   |   existing_credits <= 1
+|   |   |   |   |   |   |   |   own_telephone = none: bad (9.0/1.0)
+|   |   |   |   |   |   |   |   own_telephone = yes: good (4.0/1.0)
+|   |   |   |   |   |   |   existing_credits > 1: good (2.0)
+|   |   |   |   |   duration > 30: bad (30.0/3.0)
+|   |   |   |   other_parties = co applicant: bad (7.0/1.0)
+|   |   |   |   other_parties = guarantor: good (12.0/3.0)
+|   |   |   job = high qualif/self emp/mgmt: good (30.0/8.0)
+|   foreign_worker = no: good (15.0/2.0)
+checking_status = 0<=X<200
+|   credit_amount <= 9857
+|   |   savings_status = <100
+|   |   |   other_parties = none
+|   |   |   |   duration <= 42
+|   |   |   |   |   personal_status = male div/sep: bad (8.0/2.0)
+|   |   |   |   |   personal_status = female div/dep/mar
+|   |   |   |   |   |   purpose = new car: bad (5.0/1.0)
+|   |   |   |   |   |   purpose = used car: bad (1.0)
+|   |   |   |   |   |   purpose = furniture/equipment
+|   |   |   |   |   |   |   duration <= 10: bad (3.0)
+|   |   |   |   |   |   |   duration > 10
+|   |   |   |   |   |   |   |   duration <= 21: good (6.0/1.0)
+|   |   |   |   |   |   |   |   duration > 21: bad (2.0)
+|   |   |   |   |   |   purpose = radio/tv: good (8.0/2.0)
+|   |   |   |   |   |   purpose = domestic appliance: good (0.0)
+|   |   |   |   |   |   purpose = repairs: good (1.0)
+|   |   |   |   |   |   purpose = education: good (4.0/2.0)
+|   |   |   |   |   |   purpose = vacation: good (0.0)
+|   |   |   |   |   |   purpose = retraining: good (0.0)
+|   |   |   |   |   |   purpose = business
+|   |   |   |   |   |   |   residence_since <= 2: good (3.0)
+|   |   |   |   |   |   |   residence_since > 2: bad (2.0)
+|   |   |   |   |   |   purpose = other: good (0.0)
+|   |   |   |   |   personal_status = male single: good (52.0/15.0)
+|   |   |   |   |   personal_status = male mar/wid
+|   |   |   |   |   |   duration <= 10: good (6.0)
+|   |   |   |   |   |   duration > 10: bad (10.0/3.0)
+|   |   |   |   |   personal_status = female single: good (0.0)
+|   |   |   |   duration > 42: bad (7.0)
+|   |   |   other_parties = co applicant: good (2.0)
+|   |   |   other_parties = guarantor
+|   |   |   |   purpose = new car: bad (2.0)
+|   |   |   |   purpose = used car: good (0.0)
+|   |   |   |   purpose = furniture/equipment: good (0.0)
+|   |   |   |   purpose = radio/tv: good (18.0/1.0)
+|   |   |   |   purpose = domestic appliance: good (0.0)
+|   |   |   |   purpose = repairs: good (0.0)
+|   |   |   |   purpose = education: good (0.0)
+|   |   |   |   purpose = vacation: good (0.0)
+|   |   |   |   purpose = retraining: good (0.0)
+|   |   |   |   purpose = business: good (0.0)
+|   |   |   |   purpose = other: good (0.0)
+|   |   savings_status = 100<=X<500
+|   |   |   purpose = new car: bad (15.0/5.0)
+|   |   |   purpose = used car: good (3.0)
+|   |   |   purpose = furniture/equipment: bad (4.0/1.0)
+|   |   |   purpose = radio/tv: bad (8.0/2.0)
+|   |   |   purpose = domestic appliance: good (0.0)
+|   |   |   purpose = repairs: good (2.0)
+|   |   |   purpose = education: good (0.0)
+|   |   |   purpose = vacation: good (0.0)
+|   |   |   purpose = retraining: good (0.0)
+|   |   |   purpose = business
+|   |   |   |   housing = rent
+|   |   |   |   |   existing_credits <= 1: good (2.0)
+|   |   |   |   |   existing_credits > 1: bad (2.0)
+|   |   |   |   housing = own: good (6.0)
+|   |   |   |   housing = for free: bad (1.0)
+|   |   |   purpose = other: good (1.0)
+|   |   savings_status = 500<=X<1000: good (11.0/3.0)
+|   |   savings_status = >=1000: good (13.0/3.0)
+|   |   savings_status = no known savings: good (41.0/5.0)
+|   credit_amount > 9857: bad (20.0/3.0)
+checking_status = >=200: good (63.0/14.0)
+checking_status = no checking: good (394.0/46.0)
+
+Number of Leaves  : 	103
+
+Size of the tree : 	140
+
+
+Time taken to build model: 0.02 seconds
+
+=== Predictions on test data ===
+
+inst#,actual,predicted,error,prediction
+1,2:bad,2:bad,,1
+2,2:bad,1:good,+,0.75
+3,2:bad,1:good,+,0.667
+4,2:bad,2:bad,,0.905
+5,2:bad,2:bad,,0.722
+6,2:bad,1:good,+,0.837
+7,2:bad,1:good,+,1
+8,2:bad,1:good,+,1
+9,2:bad,1:good,+,0.75
+10,2:bad,2:bad,,1
+11,2:bad,1:good,+,0.667
+12,2:bad,1:good,+,0.883
+13,2:bad,1:good,+,0.883
+14,2:bad,2:bad,,1
+15,2:bad,1:good,+,1
+16,2:bad,2:bad,,1
+17,2:bad,1:good,+,0.883
+18,2:bad,1:good,+,0.941
+19,2:bad,1:good,+,0.883
+20,2:bad,1:good,+,0.837
+21,2:bad,1:good,+,0.714
+22,2:bad,2:bad,,1
+23,2:bad,2:bad,,1
+24,2:bad,1:good,+,0.667
+25,2:bad,1:good,+,0.857
+26,2:bad,2:bad,,0.722
+27,2:bad,1:good,+,0.883
+28,2:bad,1:good,+,1
+29,2:bad,2:bad,,1
+30,2:bad,2:bad,,1
+31,1:good,1:good,,0.883
+32,1:good,1:good,,0.883
+33,1:good,1:good,,0.883
+34,1:good,1:good,,0.883
+35,1:good,1:good,,1
+36,1:good,1:good,,0.883
+37,1:good,1:good,,0.852
+38,1:good,1:good,,0.883
+39,1:good,1:good,,0.883
+40,1:good,1:good,,0.883
+41,1:good,1:good,,0.778
+42,1:good,2:bad,+,1
+43,1:good,1:good,,0.846
+44,1:good,1:good,,0.883
+45,1:good,1:good,,0.883
+46,1:good,2:bad,+,0.833
+47,1:good,2:bad,+,0.905
+48,1:good,1:good,,0.883
+49,1:good,1:good,,0.883
+50,1:good,1:good,,0.883
+51,1:good,1:good,,0.883
+52,1:good,1:good,,0.883
+53,1:good,1:good,,0.837
+54,1:good,1:good,,0.883
+55,1:good,1:good,,0.778
+56,1:good,1:good,,0.883
+57,1:good,2:bad,+,0.895
+58,1:good,2:bad,+,0.905
+59,1:good,1:good,,0.837
+60,1:good,2:bad,+,0.905
+61,1:good,1:good,,1
+62,1:good,1:good,,0.75
+63,1:good,1:good,,0.883
+64,1:good,1:good,,1
+65,1:good,2:bad,+,1
+66,1:good,1:good,,0.852
+67,1:good,1:good,,0.883
+68,1:good,1:good,,1
+69,1:good,1:good,,0.883
+70,1:good,1:good,,0.769
+71,1:good,1:good,,0.837
+72,1:good,1:good,,0.883
+73,1:good,1:good,,1
+74,1:good,1:good,,1
+75,1:good,1:good,,0.883
+76,1:good,1:good,,0.883
+77,1:good,2:bad,+,1
+78,1:good,1:good,,0.883
+79,1:good,1:good,,0.883
+80,1:good,1:good,,0.852
+81,1:good,1:good,,0.883
+82,1:good,1:good,,0.883
+83,1:good,1:good,,1
+84,1:good,1:good,,0.883
+85,1:good,1:good,,0.883
+86,1:good,1:good,,0.883
+87,1:good,1:good,,1
+88,1:good,1:good,,0.883
+89,1:good,1:good,,0.883
+90,1:good,1:good,,0.883
+91,1:good,1:good,,0.883
+92,1:good,1:good,,0.883
+93,1:good,1:good,,0.778
+94,1:good,1:good,,0.883
+95,1:good,1:good,,1
+96,1:good,1:good,,0.883
+97,1:good,1:good,,0.883
+98,1:good,1:good,,0.846
+99,1:good,2:bad,+,0.778
+100,1:good,1:good,,1
+1,2:bad,1:good,+,0.923
+2,2:bad,1:good,+,0.556
+3,2:bad,1:good,+,0.892
+4,2:bad,1:good,+,0.656
+5,2:bad,2:bad,,0.685
+6,2:bad,1:good,+,0.656
+7,2:bad,1:good,+,0.897
+8,2:bad,1:good,+,0.892
+9,2:bad,1:good,+,0.892
+10,2:bad,2:bad,,1
+11,2:bad,1:good,+,0.892
+12,2:bad,1:good,+,0.892
+13,2:bad,1:good,+,0.5
+14,2:bad,1:good,+,0.656
+15,2:bad,1:good,+,0.656
+16,2:bad,1:good,+,1
+17,2:bad,1:good,+,0.892
+18,2:bad,2:bad,,0.685
+19,2:bad,2:bad,,0.685
+20,2:bad,1:good,+,0.656
+21,2:bad,1:good,+,0.824
+22,2:bad,2:bad,,0.842
+23,2:bad,1:good,+,0.923
+24,2:bad,1:good,+,0.917
+25,2:bad,1:good,+,0.892
+26,2:bad,2:bad,,0.714
+27,2:bad,1:good,+,0.892
+28,2:bad,2:bad,,0.685
+29,2:bad,1:good,+,0.656
+30,2:bad,1:good,+,0.556
+31,1:good,1:good,,0.842
+32,1:good,1:good,,0.917
+33,1:good,1:good,,0.892
+34,1:good,1:good,,0.892
+35,1:good,1:good,,0.892
+36,1:good,1:good,,0.679
+37,1:good,2:bad,+,0.714
+38,1:good,2:bad,+,0.685
+39,1:good,1:good,,1
+40,1:good,1:good,,0.892
+41,1:good,1:good,,0.892
+42,1:good,1:good,,0.656
+43,1:good,1:good,,0.892
+44,1:good,1:good,,0.892
+45,1:good,1:good,,0.842
+46,1:good,1:good,,0.892
+47,1:good,1:good,,0.892
+48,1:good,1:good,,0.556
+49,1:good,1:good,,0.892
+50,1:good,2:bad,+,0.685
+51,1:good,1:good,,0.892
+52,1:good,1:good,,0.892
+53,1:good,2:bad,+,1
+54,1:good,2:bad,+,1
+55,1:good,1:good,,0.656
+56,1:good,1:good,,0.679
+57,1:good,1:good,,0.892
+58,1:good,1:good,,0.892
+59,1:good,1:good,,0.892
+60,1:good,1:good,,0.892
+61,1:good,2:bad,+,0.685
+62,1:good,1:good,,0.892
+63,1:good,1:good,,0.892
+64,1:good,2:bad,+,0.842
+65,1:good,2:bad,+,0.778
+66,1:good,1:good,,0.656
+67,1:good,1:good,,0.9
+68,1:good,1:good,,0.892
+69,1:good,1:good,,0.679
+70,1:good,1:good,,0.5
+71,1:good,1:good,,0.892
+72,1:good,1:good,,0.892
+73,1:good,1:good,,0.892
+74,1:good,1:good,,0.75
+75,1:good,1:good,,0.679
+76,1:good,1:good,,0.892
+77,1:good,1:good,,0.917
+78,1:good,1:good,,0.892
+79,1:good,1:good,,0.892
+80,1:good,1:good,,1
+81,1:good,1:good,,0.892
+82,1:good,1:good,,0.892
+83,1:good,1:good,,1
+84,1:good,1:good,,0.679
+85,1:good,1:good,,0.892
+86,1:good,1:good,,0.892
+87,1:good,1:good,,0.556
+88,1:good,2:bad,+,0.685
+89,1:good,1:good,,0.892
+90,1:good,2:bad,+,1
+91,1:good,1:good,,0.892
+92,1:good,1:good,,0.892
+93,1:good,1:good,,0.656
+94,1:good,1:good,,0.656
+95,1:good,2:bad,+,0.842
+96,1:good,1:good,,0.892
+97,1:good,2:bad,+,0.685
+98,1:good,1:good,,0.892
+99,1:good,1:good,,0.897
+100,1:good,2:bad,+,1
+1,2:bad,2:bad,,0.667
+2,2:bad,1:good,+,0.8
+3,2:bad,2:bad,,0.667
+4,2:bad,2:bad,,0.765
+5,2:bad,1:good,+,1
+6,2:bad,2:bad,,0.765
+7,2:bad,1:good,+,1
+8,2:bad,1:good,+,0.889
+9,2:bad,1:good,+,0.778
+10,2:bad,1:good,+,1
+11,2:bad,2:bad,,1
+12,2:bad,1:good,+,1
+13,2:bad,2:bad,,1
+14,2:bad,1:good,+,0.881
+15,2:bad,2:bad,,1
+16,2:bad,1:good,+,1
+17,2:bad,1:good,+,1
+18,2:bad,2:bad,,1
+19,2:bad,2:bad,,0.765
+20,2:bad,1:good,+,0.881
+21,2:bad,1:good,+,0.881
+22,2:bad,2:bad,,0.667
+23,2:bad,1:good,+,0.892
+24,2:bad,1:good,+,0.881
+25,2:bad,1:good,+,1
+26,2:bad,1:good,+,1
+27,2:bad,1:good,+,0.778
+28,2:bad,2:bad,,0.8
+29,2:bad,1:good,+,0.833
+30,2:bad,2:bad,,1
+31,1:good,2:bad,+,1
+32,1:good,1:good,,0.881
+33,1:good,2:bad,+,1
+34,1:good,1:good,,0.881
+35,1:good,2:bad,+,0.667
+36,1:good,1:good,,0.881
+37,1:good,1:good,,0.881
+38,1:good,1:good,,0.881
+39,1:good,2:bad,+,0.533
+40,1:good,1:good,,0.881
+41,1:good,1:good,,0.881
+42,1:good,1:good,,0.881
+43,1:good,1:good,,0.881
+44,1:good,1:good,,1
+45,1:good,1:good,,0.938
+46,1:good,1:good,,0.881
+47,1:good,2:bad,+,0.667
+48,1:good,2:bad,+,0.929
+49,1:good,1:good,,0.881
+50,1:good,1:good,,0.892
+51,1:good,1:good,,0.881
+52,1:good,1:good,,0.881
+53,1:good,2:bad,+,0.667
+54,1:good,2:bad,+,0.667
+55,1:good,1:good,,0.881
+56,1:good,2:bad,+,0.667
+57,1:good,2:bad,+,0.8
+58,1:good,1:good,,1
+59,1:good,2:bad,+,0.765
+60,1:good,1:good,,1
+61,1:good,1:good,,0.808
+62,1:good,1:good,,0.778
+63,1:good,1:good,,0.881
+64,1:good,2:bad,+,0.857
+65,1:good,1:good,,0.881
+66,1:good,1:good,,0.8
+67,1:good,1:good,,0.667
+68,1:good,2:bad,+,1
+69,1:good,1:good,,0.881
+70,1:good,1:good,,0.881
+71,1:good,1:good,,0.8
+72,1:good,1:good,,0.881
+73,1:good,1:good,,0.881
+74,1:good,1:good,,0.881
+75,1:good,1:good,,0.808
+76,1:good,1:good,,0.881
+77,1:good,1:good,,0.9
+78,1:good,1:good,,0.892
+79,1:good,1:good,,0.881
+80,1:good,1:good,,0.881
+81,1:good,1:good,,0.881
+82,1:good,1:good,,0.892
+83,1:good,1:good,,0.881
+84,1:good,2:bad,+,1
+85,1:good,1:good,,0.881
+86,1:good,1:good,,0.881
+87,1:good,1:good,,1
+88,1:good,1:good,,0.881
+89,1:good,1:good,,0.938
+90,1:good,1:good,,0.881
+91,1:good,1:good,,0.881
+92,1:good,1:good,,0.881
+93,1:good,1:good,,0.881
+94,1:good,1:good,,0.7
+95,1:good,1:good,,0.881
+96,1:good,1:good,,0.881
+97,1:good,1:good,,0.881
+98,1:good,1:good,,0.881
+99,1:good,1:good,,1
+100,1:good,1:good,,1
+1,2:bad,2:bad,,0.842
+2,2:bad,1:good,+,0.753
+3,2:bad,1:good,+,0.9
+4,2:bad,1:good,+,0.753
+5,2:bad,2:bad,,1
+6,2:bad,2:bad,,0.846
+7,2:bad,1:good,+,0.778
+8,2:bad,1:good,+,0.68
+9,2:bad,1:good,+,0.875
+10,2:bad,1:good,+,0.9
+11,2:bad,1:good,+,1
+12,2:bad,2:bad,,1
+13,2:bad,1:good,+,1
+14,2:bad,1:good,+,0.883
+15,2:bad,2:bad,,0.833
+16,2:bad,2:bad,,0.846
+17,2:bad,1:good,+,1
+18,2:bad,1:good,+,0.883
+19,2:bad,2:bad,,0.875
+20,2:bad,1:good,+,0.753
+21,2:bad,2:bad,,0.842
+22,2:bad,1:good,+,1
+23,2:bad,1:good,+,0.883
+24,2:bad,1:good,+,0.816
+25,2:bad,2:bad,,1
+26,2:bad,1:good,+,0.753
+27,2:bad,1:good,+,0.883
+28,2:bad,1:good,+,0.753
+29,2:bad,1:good,+,0.753
+30,2:bad,2:bad,,1
+31,1:good,1:good,,0.883
+32,1:good,1:good,,0.868
+33,1:good,1:good,,0.883
+34,1:good,1:good,,0.753
+35,1:good,1:good,,0.883
+36,1:good,1:good,,1
+37,1:good,1:good,,0.883
+38,1:good,2:bad,+,0.733
+39,1:good,1:good,,0.883
+40,1:good,1:good,,0.883
+41,1:good,2:bad,+,0.842
+42,1:good,1:good,,0.778
+43,1:good,1:good,,0.883
+44,1:good,1:good,,0.667
+45,1:good,1:good,,0.753
+46,1:good,1:good,,0.883
+47,1:good,1:good,,0.883
+48,1:good,1:good,,0.883
+49,1:good,1:good,,0.883
+50,1:good,1:good,,0.753
+51,1:good,1:good,,1
+52,1:good,1:good,,0.883
+53,1:good,1:good,,0.883
+54,1:good,1:good,,0.883
+55,1:good,1:good,,0.816
+56,1:good,1:good,,1
+57,1:good,1:good,,0.868
+58,1:good,1:good,,0.778
+59,1:good,2:bad,+,1
+60,1:good,1:good,,0.883
+61,1:good,1:good,,0.753
+62,1:good,1:good,,0.753
+63,1:good,1:good,,1
+64,1:good,1:good,,0.883
+65,1:good,2:bad,+,0.733
+66,1:good,1:good,,0.883
+67,1:good,1:good,,0.816
+68,1:good,1:good,,0.753
+69,1:good,2:bad,+,0.739
+70,1:good,1:good,,0.883
+71,1:good,1:good,,0.883
+72,1:good,1:good,,1
+73,1:good,1:good,,0.883
+74,1:good,1:good,,0.883
+75,1:good,1:good,,0.883
+76,1:good,2:bad,+,0.875
+77,1:good,1:good,,0.753
+78,1:good,1:good,,0.883
+79,1:good,1:good,,0.816
+80,1:good,1:good,,0.883
+81,1:good,1:good,,1
+82,1:good,1:good,,0.883
+83,1:good,2:bad,+,0.75
+84,1:good,1:good,,0.778
+85,1:good,1:good,,0.883
+86,1:good,2:bad,+,1
+87,1:good,1:good,,0.753
+88,1:good,1:good,,0.883
+89,1:good,1:good,,0.75
+90,1:good,1:good,,0.9
+91,1:good,2:bad,+,0.739
+92,1:good,1:good,,0.883
+93,1:good,1:good,,0.883
+94,1:good,1:good,,0.868
+95,1:good,1:good,,0.883
+96,1:good,1:good,,0.753
+97,1:good,2:bad,+,0.846
+98,1:good,1:good,,0.753
+99,1:good,1:good,,0.816
+100,1:good,1:good,,0.753
+1,2:bad,2:bad,,1
+2,2:bad,2:bad,,1
+3,2:bad,2:bad,,0.722
+4,2:bad,1:good,+,0.806
+5,2:bad,2:bad,,0.722
+6,2:bad,1:good,+,1
+7,2:bad,2:bad,,0.611
+8,2:bad,2:bad,,0.625
+9,2:bad,2:bad,,0.611
+10,2:bad,1:good,+,0.667
+11,2:bad,1:good,+,0.729
+12,2:bad,1:good,+,0.636
+13,2:bad,2:bad,,0.722
+14,2:bad,2:bad,,0.611
+15,2:bad,1:good,+,0.881
+16,2:bad,1:good,+,0.881
+17,2:bad,1:good,+,0.881
+18,2:bad,1:good,+,0.729
+19,2:bad,1:good,+,0.768
+20,2:bad,2:bad,,0.714
+21,2:bad,2:bad,,1
+22,2:bad,1:good,+,1
+23,2:bad,1:good,+,1
+24,2:bad,2:bad,,0.625
+25,2:bad,1:good,+,0.636
+26,2:bad,2:bad,,0.625
+27,2:bad,2:bad,,0.833
+28,2:bad,1:good,+,0.729
+29,2:bad,2:bad,,1
+30,2:bad,2:bad,,1
+31,1:good,1:good,,0.881
+32,1:good,2:bad,+,0.833
+33,1:good,1:good,,0.667
+34,1:good,1:good,,0.881
+35,1:good,1:good,,0.881
+36,1:good,2:bad,+,0.722
+37,1:good,1:good,,1
+38,1:good,2:bad,+,1
+39,1:good,1:good,,0.667
+40,1:good,1:good,,0.881
+41,1:good,1:good,,0.881
+42,1:good,1:good,,0.881
+43,1:good,1:good,,0.881
+44,1:good,1:good,,0.881
+45,1:good,1:good,,0.768
+46,1:good,1:good,,0.881
+47,1:good,1:good,,0.881
+48,1:good,1:good,,0.881
+49,1:good,2:bad,+,1
+50,1:good,2:bad,+,1
+51,1:good,1:good,,0.9
+52,1:good,1:good,,0.881
+53,1:good,1:good,,0.75
+54,1:good,1:good,,0.881
+55,1:good,2:bad,+,1
+56,1:good,1:good,,0.768
+57,1:good,1:good,,0.881
+58,1:good,2:bad,+,0.722
+59,1:good,2:bad,+,0.611
+60,1:good,1:good,,0.881
+61,1:good,1:good,,0.881
+62,1:good,2:bad,+,0.722
+63,1:good,1:good,,0.729
+64,1:good,1:good,,0.857
+65,1:good,1:good,,0.75
+66,1:good,1:good,,1
+67,1:good,1:good,,0.768
+68,1:good,1:good,,0.881
+69,1:good,1:good,,0.667
+70,1:good,1:good,,0.881
+71,1:good,2:bad,+,0.611
+72,1:good,1:good,,0.768
+73,1:good,2:bad,+,0.833
+74,1:good,1:good,,0.667
+75,1:good,1:good,,0.881
+76,1:good,1:good,,0.768
+77,1:good,1:good,,0.833
+78,1:good,1:good,,0.806
+79,1:good,1:good,,0.881
+80,1:good,1:good,,0.729
+81,1:good,1:good,,0.714
+82,1:good,1:good,,0.833
+83,1:good,1:good,,0.75
+84,1:good,1:good,,0.881
+85,1:good,1:good,,0.667
+86,1:good,1:good,,0.881
+87,1:good,1:good,,0.881
+88,1:good,1:good,,0.881
+89,1:good,1:good,,0.881
+90,1:good,1:good,,0.881
+91,1:good,2:bad,+,0.722
+92,1:good,1:good,,0.881
+93,1:good,1:good,,0.881
+94,1:good,1:good,,0.768
+95,1:good,1:good,,0.95
+96,1:good,1:good,,0.75
+97,1:good,1:good,,0.881
+98,1:good,1:good,,0.881
+99,1:good,2:bad,+,0.722
+100,1:good,2:bad,+,1
+1,2:bad,1:good,+,0.889
+2,2:bad,1:good,+,0.867
+3,2:bad,2:bad,,0.75
+4,2:bad,2:bad,,0.833
+5,2:bad,1:good,+,0.867
+6,2:bad,1:good,+,0.75
+7,2:bad,2:bad,,0.667
+8,2:bad,1:good,+,0.667
+9,2:bad,2:bad,,1
+10,2:bad,1:good,+,0.881
+11,2:bad,1:good,+,0.733
+12,2:bad,2:bad,,0.8
+13,2:bad,2:bad,,0.882
+14,2:bad,1:good,+,0.667
+15,2:bad,1:good,+,0.667
+16,2:bad,2:bad,,1
+17,2:bad,1:good,+,0.881
+18,2:bad,1:good,+,0.81
+19,2:bad,2:bad,,1
+20,2:bad,1:good,+,0.81
+21,2:bad,2:bad,,0.667
+22,2:bad,2:bad,,0.833
+23,2:bad,1:good,+,0.81
+24,2:bad,2:bad,,0.667
+25,2:bad,2:bad,,0.833
+26,2:bad,1:good,+,0.733
+27,2:bad,1:good,+,0.881
+28,2:bad,1:good,+,0.881
+29,2:bad,1:good,+,0.75
+30,2:bad,1:good,+,0.733
+31,1:good,1:good,,0.75
+32,1:good,1:good,,0.938
+33,1:good,1:good,,0.881
+34,1:good,1:good,,0.881
+35,1:good,2:bad,+,1
+36,1:good,1:good,,0.881
+37,1:good,1:good,,0.881
+38,1:good,2:bad,+,0.591
+39,1:good,1:good,,0.881
+40,1:good,2:bad,+,1
+41,1:good,1:good,,0.81
+42,1:good,1:good,,0.733
+43,1:good,1:good,,0.75
+44,1:good,1:good,,0.7
+45,1:good,1:good,,0.881
+46,1:good,2:bad,+,1
+47,1:good,1:good,,0.938
+48,1:good,2:bad,+,1
+49,1:good,1:good,,0.881
+50,1:good,1:good,,0.881
+51,1:good,1:good,,0.881
+52,1:good,1:good,,0.881
+53,1:good,1:good,,0.881
+54,1:good,1:good,,0.881
+55,1:good,1:good,,1
+56,1:good,1:good,,0.881
+57,1:good,2:bad,+,1
+58,1:good,1:good,,0.889
+59,1:good,1:good,,0.733
+60,1:good,2:bad,+,0.591
+61,1:good,2:bad,+,1
+62,1:good,1:good,,0.881
+63,1:good,1:good,,0.881
+64,1:good,1:good,,0.881
+65,1:good,1:good,,0.733
+66,1:good,1:good,,0.881
+67,1:good,1:good,,0.881
+68,1:good,2:bad,+,1
+69,1:good,1:good,,0.881
+70,1:good,1:good,,0.881
+71,1:good,1:good,,0.75
+72,1:good,1:good,,0.881
+73,1:good,2:bad,+,0.591
+74,1:good,1:good,,0.733
+75,1:good,1:good,,0.867
+76,1:good,1:good,,0.867
+77,1:good,1:good,,0.881
+78,1:good,2:bad,+,0.882
+79,1:good,1:good,,0.881
+80,1:good,1:good,,0.881
+81,1:good,1:good,,0.881
+82,1:good,1:good,,0.889
+83,1:good,1:good,,0.881
+84,1:good,1:good,,0.889
+85,1:good,1:good,,0.881
+86,1:good,1:good,,0.881
+87,1:good,1:good,,0.889
+88,1:good,1:good,,0.867
+89,1:good,2:bad,+,1
+90,1:good,1:good,,0.881
+91,1:good,1:good,,0.881
+92,1:good,1:good,,0.881
+93,1:good,1:good,,0.881
+94,1:good,1:good,,0.881
+95,1:good,1:good,,0.881
+96,1:good,1:good,,0.881
+97,1:good,1:good,,0.881
+98,1:good,2:bad,+,1
+99,1:good,1:good,,0.81
+100,1:good,1:good,,0.881
+1,2:bad,2:bad,,0.667
+2,2:bad,1:good,+,0.947
+3,2:bad,2:bad,,1
+4,2:bad,1:good,+,0.667
+5,2:bad,1:good,+,0.782
+6,2:bad,2:bad,,0.8
+7,2:bad,1:good,+,1
+8,2:bad,1:good,+,1
+9,2:bad,2:bad,,1
+10,2:bad,1:good,+,0.884
+11,2:bad,2:bad,,0.75
+12,2:bad,1:good,+,0.8
+13,2:bad,1:good,+,0.884
+14,2:bad,1:good,+,1
+15,2:bad,1:good,+,0.756
+16,2:bad,1:good,+,1
+17,2:bad,1:good,+,0.884
+18,2:bad,1:good,+,0.756
+19,2:bad,1:good,+,0.884
+20,2:bad,1:good,+,0.583
+21,2:bad,1:good,+,0.884
+22,2:bad,2:bad,,0.615
+23,2:bad,2:bad,,1
+24,2:bad,2:bad,,0.8
+25,2:bad,2:bad,,1
+26,2:bad,2:bad,,0.8
+27,2:bad,1:good,+,0.782
+28,2:bad,2:bad,,0.933
+29,2:bad,2:bad,,1
+30,2:bad,2:bad,,1
+31,1:good,1:good,,0.884
+32,1:good,1:good,,0.884
+33,1:good,1:good,,0.884
+34,1:good,2:bad,+,0.667
+35,1:good,1:good,,0.583
+36,1:good,1:good,,0.884
+37,1:good,1:good,,1
+38,1:good,1:good,,0.756
+39,1:good,1:good,,0.884
+40,1:good,2:bad,+,0.846
+41,1:good,1:good,,0.884
+42,1:good,1:good,,0.884
+43,1:good,1:good,,0.884
+44,1:good,1:good,,0.782
+45,1:good,1:good,,0.884
+46,1:good,1:good,,0.782
+47,1:good,1:good,,0.782
+48,1:good,1:good,,1
+49,1:good,2:bad,+,0.667
+50,1:good,1:good,,0.884
+51,1:good,1:good,,0.947
+52,1:good,1:good,,0.884
+53,1:good,1:good,,0.884
+54,1:good,1:good,,0.884
+55,1:good,1:good,,0.884
+56,1:good,1:good,,0.884
+57,1:good,1:good,,0.884
+58,1:good,1:good,,0.884
+59,1:good,2:bad,+,1
+60,1:good,1:good,,0.884
+61,1:good,1:good,,0.884
+62,1:good,1:good,,0.884
+63,1:good,2:bad,+,1
+64,1:good,1:good,,1
+65,1:good,1:good,,0.825
+66,1:good,1:good,,0.756
+67,1:good,2:bad,+,0.933
+68,1:good,1:good,,1
+69,1:good,1:good,,1
+70,1:good,2:bad,+,0.667
+71,1:good,1:good,,0.884
+72,1:good,1:good,,0.884
+73,1:good,1:good,,1
+74,1:good,1:good,,1
+75,1:good,1:good,,0.782
+76,1:good,1:good,,0.782
+77,1:good,1:good,,0.714
+78,1:good,1:good,,0.884
+79,1:good,1:good,,0.75
+80,1:good,1:good,,0.833
+81,1:good,1:good,,0.884
+82,1:good,1:good,,0.825
+83,1:good,1:good,,0.884
+84,1:good,1:good,,0.756
+85,1:good,1:good,,0.884
+86,1:good,1:good,,0.884
+87,1:good,1:good,,0.884
+88,1:good,2:bad,+,0.75
+89,1:good,1:good,,0.884
+90,1:good,1:good,,0.884
+91,1:good,1:good,,0.884
+92,1:good,2:bad,+,0.846
+93,1:good,1:good,,0.884
+94,1:good,1:good,,0.884
+95,1:good,1:good,,0.756
+96,1:good,1:good,,0.884
+97,1:good,1:good,,0.782
+98,1:good,2:bad,+,1
+99,1:good,1:good,,0.884
+100,1:good,1:good,,0.884
+1,2:bad,1:good,+,0.717
+2,2:bad,1:good,+,0.888
+3,2:bad,2:bad,,1
+4,2:bad,2:bad,,1
+5,2:bad,1:good,+,0.886
+6,2:bad,2:bad,,0.714
+7,2:bad,1:good,+,0.7
+8,2:bad,1:good,+,0.888
+9,2:bad,2:bad,,0.714
+10,2:bad,2:bad,,0.778
+11,2:bad,1:good,+,0.888
+12,2:bad,2:bad,,1
+13,2:bad,2:bad,,0.889
+14,2:bad,1:good,+,0.7
+15,2:bad,1:good,+,1
+16,2:bad,1:good,+,0.889
+17,2:bad,2:bad,,0.6
+18,2:bad,1:good,+,0.888
+19,2:bad,1:good,+,0.75
+20,2:bad,1:good,+,0.667
+21,2:bad,2:bad,,0.818
+22,2:bad,2:bad,,0.667
+23,2:bad,1:good,+,0.888
+24,2:bad,2:bad,,1
+25,2:bad,1:good,+,0.717
+26,2:bad,1:good,+,0.833
+27,2:bad,1:good,+,0.888
+28,2:bad,1:good,+,0.667
+29,2:bad,1:good,+,0.667
+30,2:bad,1:good,+,0.7
+31,1:good,1:good,,0.889
+32,1:good,1:good,,0.833
+33,1:good,1:good,,0.7
+34,1:good,1:good,,0.888
+35,1:good,1:good,,0.888
+36,1:good,1:good,,0.888
+37,1:good,1:good,,0.888
+38,1:good,2:bad,+,0.778
+39,1:good,1:good,,0.888
+40,1:good,2:bad,+,1
+41,1:good,1:good,,0.833
+42,1:good,1:good,,0.888
+43,1:good,2:bad,+,0.6
+44,1:good,1:good,,0.717
+45,1:good,1:good,,0.7
+46,1:good,1:good,,0.888
+47,1:good,2:bad,+,0.778
+48,1:good,1:good,,0.888
+49,1:good,1:good,,0.888
+50,1:good,1:good,,0.888
+51,1:good,1:good,,0.717
+52,1:good,1:good,,0.888
+53,1:good,2:bad,+,1
+54,1:good,1:good,,0.889
+55,1:good,1:good,,0.938
+56,1:good,1:good,,0.886
+57,1:good,1:good,,0.888
+58,1:good,1:good,,0.886
+59,1:good,2:bad,+,0.8
+60,1:good,2:bad,+,0.818
+61,1:good,1:good,,0.886
+62,1:good,1:good,,0.667
+63,1:good,1:good,,0.888
+64,1:good,2:bad,+,0.71
+65,1:good,2:bad,+,1
+66,1:good,1:good,,0.938
+67,1:good,1:good,,0.7
+68,1:good,1:good,,0.888
+69,1:good,1:good,,0.888
+70,1:good,1:good,,0.888
+71,1:good,1:good,,0.888
+72,1:good,1:good,,0.888
+73,1:good,1:good,,0.888
+74,1:good,1:good,,0.888
+75,1:good,2:bad,+,0.889
+76,1:good,1:good,,0.888
+77,1:good,1:good,,0.888
+78,1:good,1:good,,0.888
+79,1:good,1:good,,0.888
+80,1:good,1:good,,0.888
+81,1:good,1:good,,0.717
+82,1:good,1:good,,0.9
+83,1:good,1:good,,0.7
+84,1:good,1:good,,0.888
+85,1:good,1:good,,0.888
+86,1:good,1:good,,1
+87,1:good,1:good,,0.888
+88,1:good,2:bad,+,0.833
+89,1:good,1:good,,0.6
+90,1:good,1:good,,0.888
+91,1:good,2:bad,+,0.8
+92,1:good,1:good,,0.886
+93,1:good,1:good,,0.888
+94,1:good,2:bad,+,0.6
+95,1:good,1:good,,0.888
+96,1:good,1:good,,0.888
+97,1:good,1:good,,0.886
+98,1:good,2:bad,+,0.833
+99,1:good,1:good,,1
+100,1:good,1:good,,0.717
+1,2:bad,1:good,+,0.654
+2,2:bad,2:bad,,0.631
+3,2:bad,1:good,+,1
+4,2:bad,2:bad,,0.631
+5,2:bad,1:good,+,0.667
+6,2:bad,2:bad,,0.75
+7,2:bad,1:good,+,0.842
+8,2:bad,1:good,+,0.879
+9,2:bad,1:good,+,0.714
+10,2:bad,2:bad,,0.631
+11,2:bad,1:good,+,0.654
+12,2:bad,1:good,+,0.923
+13,2:bad,1:good,+,0.875
+14,2:bad,2:bad,,0.714
+15,2:bad,2:bad,,0.631
+16,2:bad,2:bad,,1
+17,2:bad,2:bad,,1
+18,2:bad,2:bad,,1
+19,2:bad,2:bad,,1
+20,2:bad,1:good,+,0.879
+21,2:bad,1:good,+,0.667
+22,2:bad,2:bad,,0.8
+23,2:bad,1:good,+,0.8
+24,2:bad,1:good,+,0.759
+25,2:bad,2:bad,,0.631
+26,2:bad,1:good,+,0.879
+27,2:bad,1:good,+,0.654
+28,2:bad,2:bad,,1
+29,2:bad,1:good,+,0.667
+30,2:bad,1:good,+,0.654
+31,1:good,1:good,,0.879
+32,1:good,1:good,,0.75
+33,1:good,1:good,,0.667
+34,1:good,1:good,,0.875
+35,1:good,1:good,,0.759
+36,1:good,1:good,,0.879
+37,1:good,1:good,,0.879
+38,1:good,2:bad,+,1
+39,1:good,1:good,,0.879
+40,1:good,1:good,,0.879
+41,1:good,1:good,,0.759
+42,1:good,1:good,,0.759
+43,1:good,1:good,,0.879
+44,1:good,1:good,,0.879
+45,1:good,1:good,,0.75
+46,1:good,1:good,,1
+47,1:good,2:bad,+,1
+48,1:good,1:good,,0.879
+49,1:good,1:good,,0.879
+50,1:good,1:good,,1
+51,1:good,1:good,,0.879
+52,1:good,2:bad,+,0.8
+53,1:good,1:good,,0.842
+54,1:good,1:good,,0.879
+55,1:good,1:good,,0.75
+56,1:good,1:good,,0.75
+57,1:good,1:good,,0.759
+58,1:good,1:good,,0.759
+59,1:good,1:good,,0.879
+60,1:good,1:good,,0.923
+61,1:good,1:good,,0.879
+62,1:good,1:good,,0.879
+63,1:good,1:good,,0.879
+64,1:good,1:good,,0.879
+65,1:good,1:good,,0.714
+66,1:good,1:good,,0.654
+67,1:good,1:good,,0.879
+68,1:good,1:good,,0.875
+69,1:good,1:good,,0.879
+70,1:good,1:good,,0.879
+71,1:good,2:bad,+,1
+72,1:good,1:good,,0.8
+73,1:good,2:bad,+,0.778
+74,1:good,1:good,,0.842
+75,1:good,2:bad,+,0.75
+76,1:good,1:good,,0.8
+77,1:good,1:good,,0.759
+78,1:good,1:good,,0.879
+79,1:good,1:good,,0.879
+80,1:good,1:good,,0.879
+81,1:good,1:good,,0.879
+82,1:good,1:good,,0.879
+83,1:good,1:good,,0.879
+84,1:good,1:good,,0.879
+85,1:good,1:good,,0.879
+86,1:good,1:good,,0.879
+87,1:good,1:good,,0.879
+88,1:good,1:good,,0.759
+89,1:good,1:good,,0.879
+90,1:good,1:good,,0.879
+91,1:good,1:good,,0.75
+92,1:good,1:good,,0.654
+93,1:good,1:good,,0.879
+94,1:good,1:good,,0.879
+95,1:good,1:good,,0.879
+96,1:good,1:good,,0.879
+97,1:good,1:good,,0.759
+98,1:good,2:bad,+,0.631
+99,1:good,1:good,,0.879
+100,1:good,1:good,,0.842
+1,2:bad,1:good,+,0.643
+2,2:bad,1:good,+,0.881
+3,2:bad,2:bad,,0.733
+4,2:bad,2:bad,,1
+5,2:bad,1:good,+,1
+6,2:bad,1:good,+,0.944
+7,2:bad,2:bad,,1
+8,2:bad,2:bad,,0.778
+9,2:bad,2:bad,,1
+10,2:bad,2:bad,,1
+11,2:bad,2:bad,,0.842
+12,2:bad,1:good,+,1
+13,2:bad,1:good,+,0.778
+14,2:bad,2:bad,,1
+15,2:bad,1:good,+,0.95
+16,2:bad,2:bad,,1
+17,2:bad,1:good,+,0.881
+18,2:bad,1:good,+,0.881
+19,2:bad,1:good,+,1
+20,2:bad,2:bad,,1
+21,2:bad,2:bad,,1
+22,2:bad,1:good,+,0.793
+23,2:bad,2:bad,,0.625
+24,2:bad,1:good,+,0.95
+25,2:bad,1:good,+,1
+26,2:bad,1:good,+,0.643
+27,2:bad,1:good,+,0.95
+28,2:bad,1:good,+,0.886
+29,2:bad,1:good,+,0.526
+30,2:bad,1:good,+,0.881
+31,1:good,1:good,,0.944
+32,1:good,1:good,,0.886
+33,1:good,1:good,,0.667
+34,1:good,2:bad,+,0.625
+35,1:good,1:good,,0.881
+36,1:good,2:bad,+,0.625
+37,1:good,1:good,,0.881
+38,1:good,1:good,,0.881
+39,1:good,1:good,,0.881
+40,1:good,1:good,,0.881
+41,1:good,1:good,,0.881
+42,1:good,1:good,,0.881
+43,1:good,1:good,,0.881
+44,1:good,1:good,,0.944
+45,1:good,1:good,,0.881
+46,1:good,1:good,,0.881
+47,1:good,1:good,,0.881
+48,1:good,1:good,,0.881
+49,1:good,1:good,,0.881
+50,1:good,1:good,,0.754
+51,1:good,1:good,,0.754
+52,1:good,1:good,,0.754
+53,1:good,1:good,,0.881
+54,1:good,1:good,,0.793
+55,1:good,1:good,,0.727
+56,1:good,1:good,,0.881
+57,1:good,1:good,,0.754
+58,1:good,1:good,,0.881
+59,1:good,1:good,,0.881
+60,1:good,1:good,,0.881
+61,1:good,1:good,,1
+62,1:good,1:good,,0.886
+63,1:good,1:good,,0.881
+64,1:good,1:good,,0.881
+65,1:good,2:bad,+,1
+66,1:good,1:good,,0.881
+67,1:good,1:good,,0.754
+68,1:good,1:good,,0.881
+69,1:good,1:good,,0.754
+70,1:good,1:good,,0.881
+71,1:good,2:bad,+,0.833
+72,1:good,1:good,,0.881
+73,1:good,1:good,,0.793
+74,1:good,1:good,,0.881
+75,1:good,1:good,,0.881
+76,1:good,1:good,,1
+77,1:good,1:good,,0.881
+78,1:good,1:good,,0.881
+79,1:good,2:bad,+,1
+80,1:good,1:good,,0.881
+81,1:good,2:bad,+,1
+82,1:good,2:bad,+,0.75
+83,1:good,1:good,,1
+84,1:good,1:good,,0.881
+85,1:good,1:good,,0.881
+86,1:good,1:good,,0.881
+87,1:good,1:good,,0.95
+88,1:good,1:good,,0.533
+89,1:good,1:good,,0.881
+90,1:good,1:good,,0.778
+91,1:good,1:good,,0.881
+92,1:good,1:good,,0.881
+93,1:good,1:good,,0.886
+94,1:good,1:good,,0.881
+95,1:good,2:bad,+,0.583
+96,1:good,1:good,,0.95
+97,1:good,1:good,,0.727
+98,1:good,1:good,,0.881
+99,1:good,1:good,,0.881
+100,1:good,1:good,,0.793
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         705               70.5    %
+Incorrectly Classified Instances       295               29.5    %
+Kappa statistic                          0.2467
+Mean absolute error                      0.3467
+Root mean squared error                  0.4796
+Relative absolute error                 82.5233 %
+Root relative squared error            104.6565 %
+Total Number of Instances             1000
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.840    0.610    0.763      0.840    0.799      0.251    0.639     0.746     good
+                 0.390    0.160    0.511      0.390    0.442      0.251    0.639     0.449     bad
+Weighted Avg.    0.705    0.475    0.687      0.705    0.692      0.251    0.639     0.657
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 588 112 |   a = good
+ 183 117 |   b = bad
+
